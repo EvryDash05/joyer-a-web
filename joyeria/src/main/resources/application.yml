@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    database-platform: com.example.joyeria.config.dialect.SQLiteDialect
+    hibernate:
+      show-sql: true
+      format_sql: true
+      ddl-auto: update
+  datasource:
+    url: jdbc:sqlite:db_joyeria.sqlite
+    driver-class-name: org.sqlite.JDBC
