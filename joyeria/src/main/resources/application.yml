@@ -1,6 +1,11 @@
 server:
   port: 8080
 spring:
+  resources:
+    static-locations:
+      classpath:/img
+      classpath:/static/
+      classpath:/css/
   jpa:
     hibernate:
       ddl-auto: validate
