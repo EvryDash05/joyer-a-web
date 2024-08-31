@@ -1,0 +1,72 @@
+.top-bar {
+    /*tamaño fuente y color de fondo*/
+    font-size: 14px;
+    background-color: #ffffff;
+    padding: 5px 0;
+}
+
+.navbar {
+    background-color: #12171b !important;
+}
+
+.navbar-brand {
+    display: flex;
+    font-weight: bold;
+    color: #eaeaea !important;
+    padding: 0% !important;
+}
+
+.logo-img {
+    height: 70px !important;
+    width: auto;
+    max-height: none;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+}
+
+.nav-link {
+    /*home, shop, products, blog, page*/
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.nav-link:hover {
+    color: #555;
+}
+
+.navbar-nav .dropdown-menu {
+    background-color: #f8f9fa;
+}
+
+.navbar-nav .dropdown-menu a {
+    color: #000;
+}
+
+.navbar-nav .dropdown-menu a:hover {
+    background-color: #eaeaea;
+}
+
+.navbar-toggler.icon {
+    border-color: floralwhite;
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="%23ffffff" class="bi bi-list" viewBox="0 0 16 16"%3E%3Cpath d="M2 12a1 1 0 0 1 1-1h11a1 1 0 0 1 0 2H3a1 1 0 0 1-1-1zM2 6a1 1 0 0 1 1-1h11a1 1 0 0 1 0 2H3a1 1 0 0 1-1-1zM2 9a1 1 0 0 1 1-1h11a1 1 0 0 1 0 2H3a1 1 0 0 1-1-1z"/%3E%3C/svg%3E');
+    /* Icono de hamburguesa en blanco */
+}
+
+.d-flex a {
+    color: #fffdfd;
+    font-size: 1.25rem;
+}
+
+.d-flex a:hover {
+    color: #555;
+}
+
+.badge {
+    font-size: 0.75rem;
+}
