@@ -9,7 +9,7 @@ public class FrontController {
 
     @GetMapping("/")
     public String index(){
-        return "login.html";
+        return "index.html";
     }
 
 }

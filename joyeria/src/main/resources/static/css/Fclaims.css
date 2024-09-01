@@ -1,0 +1,26 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 1 set. 2024, 15:33:31
+    Author     : Edu
+*/
+
+.contenedor-reclamos {
+            display: grid;
+            grid-template-rows: repeat(1, 1fr);
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .contenedor-reclamos {
+                grid-template-rows: auto;
+                grid-template-columns: 1fr;
+            }
+        }
