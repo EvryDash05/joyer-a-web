@@ -6,7 +6,7 @@ function addProductCard(prd) {
         productsContainer.innerHTML += `
             <div class="col">
                 <div class="card h-100 product-card">
-                    <span class="position-absolute top-0 start-0 badge bg-primary m-2">HOT</span>
+                    <span class="position-absolute top-0 start-0 badge m-2" style="background-color: #12171b; color: #fff;">HOT</span>
                         <img src="/img/products/${prd}" class="card-img-top product-image original-img" alt="Chicago Hoops">
                         <img src="/img/products/alt.png" class="card-img-top product-img-hover" alt="Chicago Hoops Hover">
                         <div class="card-body" style="background-color: #F6F0EE;">
