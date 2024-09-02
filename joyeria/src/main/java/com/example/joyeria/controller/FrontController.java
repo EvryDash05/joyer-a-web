@@ -9,8 +9,11 @@ public class FrontController {
 
     @GetMapping("/")
     public String index(){
-        return "index.html";
+        return "login.html";
     }
+
+    @GetMapping("/home")
+    public String home(){ return "index.html"; }
 
     @GetMapping("/products")
     public String products(){
