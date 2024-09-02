@@ -12,4 +12,8 @@ public class FrontController {
         return "index.html";
     }
 
+    @GetMapping("/products")
+    public String products(){
+        return "products.html";
+    }
 }

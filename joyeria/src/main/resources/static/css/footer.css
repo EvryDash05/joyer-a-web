@@ -1,0 +1,50 @@
+/* Ajustes generales del footer */
+.footer {
+    background-color: #12171b; /* Color de fondo oscuro */
+    color: #ffffff; /* Color de texto blanco */
+  }
+  
+  .footer .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .footer h5 {
+    font-size: 18px; /* Tamaño del título */
+    margin-bottom: 15px;
+  }
+  
+  .footer p, .footer a {
+    font-size: 14px; /* Tamaño del texto y enlaces */
+  }
+  
+  .footer a {
+    color: #ffffff; /* Color de los enlaces en blanco */
+    text-decoration: none; /* Sin subrayado */
+  }
+  
+  .footer a:hover {
+    color: #ffcc00; /* Color de los enlaces al pasar el cursor (amarillo dorado) */
+  }
+  
+  .footer .social-links a {
+    font-size: 20px; /* Tamaño de los íconos de redes sociales */
+    color: #ffffff; /* Color de los íconos en blanco */
+    transition: color 0.3s; /* Transición suave de color */
+  }
+  
+  .footer .social-links a:hover {
+    color: #ffcc00; /* Color de los íconos al pasar el cursor (amarillo dorado) */
+  }
+  
+  .footer .small {
+    font-size: 13px; /* Tamaño del texto pequeño */
+  }
+  
+  /* Ajustes para pantallas pequeñas */
+  @media (max-width: 767px) {
+    .footer .col-md-4, .footer .col-md-2 {
+      margin-bottom: 20px; /* Espacio entre secciones en pantallas pequeñas */
+    }
+  }
+  

@@ -1,12 +1,14 @@
+/* Estilos adicionales */
 .top-bar {
     /*tamaño fuente y color de fondo*/
     font-size: 14px;
-    background-color: #ffffff;
+    background-color: #f5f8f9;
     padding: 5px 0;
 }
 
 .navbar {
     background-color: #12171b !important;
+    ;
 }
 
 .navbar-brand {
@@ -42,7 +44,7 @@
 }
 
 .navbar-nav .dropdown-menu a {
-    color: #000;
+    color: #ffffff;
 }
 
 .navbar-nav .dropdown-menu a:hover {

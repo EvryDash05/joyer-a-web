@@ -1,0 +1,25 @@
+/* Estilo para el carrusel */
+.hero .carousel-inner img {
+    height: 500px; /* Ajusta la altura según tus necesidades */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+  }
+  
+  /* Estilo para la sección de beneficios */
+  .benefits {
+    background-color: #f8f9fa; /* Color de fondo para distinguir la sección */
+  }
+  
+  .benefits i {
+    color: #333; /* Color de los íconos */
+  }
+  
+  .benefits h5 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .benefits p {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
