@@ -19,4 +19,8 @@ public class FrontController {
     public String products(){
         return "products.html";
     }
+
+    @GetMapping("/aboutUs")
+    public String aboutUs(){ return "about_us.html"; }
+
 }

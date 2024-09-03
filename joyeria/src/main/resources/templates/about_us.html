@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre Nosotros-JM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/aboutUs.css}" rel="stylesheet">
+    <link th:href="@{/css/header.css}" rel="stylesheet"/>
+    <link th:href="@{/css/footer.css}" rel="stylesheet"/>
+</head>
+<body>
+<main>
+    <div th:replace="fragments/header :: header"></div>
+    <div id="slider">
+
+        <div class="slider-inner">
+            <div id="slider-content">
+                <div class="meta">Joyería Marly</div>
+                <h2 id="slide-title"><br></h2>
+                <span data-slide-title="0">Historia<br></span>
+                <span data-slide-title="1">Mision</span>
+                <span data-slide-title="2">Objetivo</span>
+                <span data-slide-title="3">Productos</span>
+                <div class="meta">Sobre nosotros</div>
+                <div id="slide-status">ABOUT US</div>
+                <span data-slide-status="0">MARLI es una empresa de joyería fundada por una apasionada del arte de seleccionar piezas que reflejan su estilo personal. Nacida de la búsqueda cuidadosa de joyas en el extranjero, MARLI se distingue por su compromiso con la calidad e innovación. </span>
+                <span data-slide-status="1">La misión de MARLI es ofrecer una amplia variedad de joyas únicas y significativas que reflejen el estilo personal de sus clientes y realcen su belleza en el día a día. Se esfuerzan por ser la elección de confianza para aquellos que buscan piezas que atraigan la atención en todo el Perú.</span>
+                <span data-slide-status="2">
+						MARLI está dirigida a quienes buscan joyas que reflejen su identidad y realcen su feminidad de manera única. La marca entiende que las joyas son una expresión personal y ofrece una variedad de piezas cuidadosamente seleccionadas para diferentes estilos, todas con un enfoque en la autenticidad, calidad y autoexpresión.</span>
+                <span data-slide-status="3">MARLI ofrece una variedad de joyas, desde collares delicados hasta anillos impactantes, todas meticulosamente seleccionadas para realzar tu estilo personal. Con un enfoque en la calidad y el detalle, sus piezas son únicas y significativas, ideales para el uso diario.</span>
+            </div>
+        </div>
+
+        <img src="/img/aboutUs/JOYERIA2.jpg" style="width: 100%; max-height: 700%; object-fit: cover;"/>
+        <img src="/img/aboutUs/JOYERIA5.jpg"/>
+        <img src="/img/aboutUs/JOYERIA3.jpg"/>
+        <img src="/img/aboutUs/JOYERIA4.jpg"/>
+
+        <div id="pagination">
+            <button class="active" data-slide="0"></button>
+            <button data-slide="1"></button>
+            <button data-slide="2"></button>
+            <button data-slide="3"></button>
+        </div>
+
+    </div>
+</main>
+<div th:replace="fragments/footer"></div>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40525870-5');
+</script>
+
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js'></script>
+<script type="text/javascript" th:src="@{/js/aboutUs.js}"></script>
+
+</body>
+</html>
