@@ -94,6 +94,9 @@ public abstract class DatabaseConstant {
     /* Property for the stock column on table "tb_product" */
     public static final String STOCK = "stock";
 
+    /* Property for the url image column on table "tb_product" */
+    public static final String URL_IMG = "url_img";
+
     /**
      * <h2>Shipment table 🛢</h2>
      */
