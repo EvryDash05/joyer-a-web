@@ -1,3 +1,6 @@
+# ===================================================================
+# GENERAL PROPERTIES
+# ===================================================================
 server:
   port: 8080
 spring:
@@ -19,3 +22,46 @@ flyway:
   locations: classpath:/db/migration
   baseline-on-migrate: true
   baseline-version: 0
+
+# ===================================================================
+# SECURITY PROPERTIES
+# ===================================================================
+
+
+# ===================================================================
+# URL ENDPOINTS
+# ===================================================================
+api:
+  uri:
+    basePath: /api
+    domain:
+      customers: /customers
+      roles: /roles
+      authorities: /authorities
+      products: /products
+      orders: /orders
+      shipments: /shipments
+      payments: /payments
+      cart: /cart
+    data:
+      modified: /{id}
+      search: /{search}
+      # Authentication and roles
+      authentication: ${api.uri.domain.customers}/authentication
+      customerConfirm: ${api.uri.domain.customers}/confirm
+      rolesList: ${api.uri.domain.roles}/list
+      authoritiesList: ${api.uri.domain.authorities}/list
+      # Product-specific routes
+      productType: ${api.uri.domain.products}/type
+      productStock: ${api.uri.domain.products}/stock
+      # Order routes
+      orderDetails: ${api.uri.domain.orders}/{orderId}
+      orderStatus: ${api.uri.domain.orders}/{orderId}/status
+      # Shipment-specific routes
+      shipmentDetails: ${api.uri.domain.shipments}/{shipmentId}
+      # Payment-specific routes
+      paymentMethod: ${api.uri.domain.payments}/method
+      paymentDetails: ${api.uri.domain.payments}/{paymentId}
+      # Cart-specific routes
+      cartItems: ${api.uri.domain.cart}/items
+      cartCheckout: ${api.uri.domain.cart}/checkout
