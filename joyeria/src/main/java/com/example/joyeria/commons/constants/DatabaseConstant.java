@@ -191,4 +191,5 @@ public abstract class DatabaseConstant {
     /* Property for the product ID column on table "Cart" */
     public static final String CART_PRODUCT_ID = "product_id";
 
+    private DatabaseConstant() {}
 }
