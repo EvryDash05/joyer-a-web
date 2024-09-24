@@ -1,70 +1,258 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Sobre Nosotros-JM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:href="@{/css/aboutUs.css}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link th:href="@{/css/header.css}" rel="stylesheet"/>
     <link th:href="@{/css/footer.css}" rel="stylesheet"/>
+    <link th:href="@{/css/about_us.css}" rel="stylesheet"/>
+    <title>About Us – Adena</title>
 </head>
+
 <body>
-<main>
-    <div th:replace="fragments/header :: header"></div>
-    <div id="slider">
 
-        <div class="slider-inner">
-            <div id="slider-content">
-                <div class="meta">Joyería Marly</div>
-                <h2 id="slide-title"><br></h2>
-                <span data-slide-title="0">Historia<br></span>
-                <span data-slide-title="1">Mision</span>
-                <span data-slide-title="2">Objetivo</span>
-                <span data-slide-title="3">Productos</span>
-                <div class="meta">Sobre nosotros</div>
-                <div id="slide-status">ABOUT US</div>
-                <span data-slide-status="0">MARLI es una empresa de joyería fundada por una apasionada del arte de seleccionar piezas que reflejan su estilo personal. Nacida de la búsqueda cuidadosa de joyas en el extranjero, MARLI se distingue por su compromiso con la calidad e innovación. </span>
-                <span data-slide-status="1">La misión de MARLI es ofrecer una amplia variedad de joyas únicas y significativas que reflejen el estilo personal de sus clientes y realcen su belleza en el día a día. Se esfuerzan por ser la elección de confianza para aquellos que buscan piezas que atraigan la atención en todo el Perú.</span>
-                <span data-slide-status="2">
-						MARLI está dirigida a quienes buscan joyas que reflejen su identidad y realcen su feminidad de manera única. La marca entiende que las joyas son una expresión personal y ofrece una variedad de piezas cuidadosamente seleccionadas para diferentes estilos, todas con un enfoque en la autenticidad, calidad y autoexpresión.</span>
-                <span data-slide-status="3">MARLI ofrece una variedad de joyas, desde collares delicados hasta anillos impactantes, todas meticulosamente seleccionadas para realzar tu estilo personal. Con un enfoque en la calidad y el detalle, sus piezas son únicas y significativas, ideales para el uso diario.</span>
-            </div>
+<!-- Header -->
+<!--  <footer>
+<header>
+    <div class="logo">Adena</div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="user-actions">
+        <a href="#">Cart</a>
+        <a href="#">Login</a>
+    </div>
+</header>
+</header>
+</footer> -->
+<div th:replace="fragments/header"></div> <!--jalar header-->
+
+<!-- Hero Section -->
+<section class="hero">
+    <img src="/img/aboutUs/hero_img.png" alt="Woman wearing jewelry">
+    <div class="hero-text">
+        <h1>About Us</h1>
+        <p>Joyeria Marli</p>
+    </div>
+</section>
+
+<!-- Brand Logos -->
+<section class="brands">
+    <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/brand-5.png" alt="GUESS">
+    <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/brand-4.png" alt="LAGOS">
+    <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/brand-3.png" alt="MEJURI">
+    <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/band.png" alt="PANDORA">
+    <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/brand-2.png" alt="PIAGET">
+
+</section>
+<!-- Brand Logos -->
+<!--  <section class="brands">
+    <img src="guess-logo.png" alt="GUESS">
+    <img src="lagos-logo.png" alt="LAGOS">
+    <img src="mejuri-logo.png" alt="MEJURI">
+    <img src="pandora-logo.png" alt="PANDORA">
+</section> -->
+
+<!-- Products Section -->
+<section class="products">
+    <div class="product">
+        <div>
+            <img src="https://www.rabat.net/pub/media/wysiwyg/pages/bloque-2-gold-essentials-1440x1940px.jpg"
+                 alt="Earrings">
         </div>
-
-        <img src="/img/aboutUs/JOYERIA2.jpg" style="width: 100%; max-height: 700%; object-fit: cover;"/>
-        <img src="/img/aboutUs/JOYERIA5.jpg"/>
-        <img src="/img/aboutUs/JOYERIA3.jpg"/>
-        <img src="/img/aboutUs/JOYERIA4.jpg"/>
-
-        <div id="pagination">
-            <button class="active" data-slide="0"></button>
-            <button data-slide="1"></button>
-            <button data-slide="2"></button>
-            <button data-slide="3"></button>
+        <div>
+            <h2>PRODUCTOS</h2>
+            <p>En MARLI, encontrarás una selección exquisita de joyas diseñadas para
+                destacar tu estilo único. Desde delicados collares y elegantes pulseras,
+                hasta impresionantes anillos y aretes, cada pieza ha sido cuidadosamente
+                seleccionada para ofrecerte lo mejor en calidad y detalle.
+                Ya sea que busques un accesorio sutil o una pieza audaz,
+                nuestras joyas están pensadas para acompañarte en cualquier
+                ocasión, haciendo que cada momento sea especial.
+                ¡Descubre la joya perfecta para ti en MARLI!
+            </p>
+            <a href="#" class="shop-now">Shop Now</a>
         </div>
+    </div>
+    <div class="product">
+        <div>
+            <h2>OBJETIVO</h2>
+            <p>En MARLI, entendemos que las joyas son más que simples accesorios;
+                son una forma de expresar tu identidad y realzar tu belleza de manera única.
+                Nos dirigimos a quienes buscan piezas que reflejen su feminidad y estilo personal,
+                valorando la autenticidad y la originalidad. Ofrecemos una variedad de joyas,
+                desde delicados collares hasta impresionantes anillos, diseñadas para destacar tu
+                individualidad y acompañarte en cada momento especial.
+                Con MARLI, cada pieza es una expresión de quién eres.
+            </p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div><img src="https://www.deoro.org/es/uploads/product/pro-04.jpg" alt="Jewelry"></div>
 
     </div>
-</main>
-<div th:replace="fragments/footer"></div>
+</section>
 
-<script>
-    window.dataLayer = window.dataLayer || [];
+<!-- Testimonials -->
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
+<section class="testimonials">
+    <h2>Testimonios</h2>
 
-    gtag('js', new Date());
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="testimonial">
+                <img src="/img/aboutUs/perfil1.jpeg" alt="Ann">
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"¡Las joyas superaron todas mis expectativas! Cada pieza es simplemente perfecta."</p>
+                    <p class="name">- Carla, Diseñadora Gráfica</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="/img/aboutUs/perfil2.jpeg" alt="Linda">
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"Estoy enamorada de mi nuevo collar. ¡Definitivamente volveré a comprar!"</p>
+                    <p class="name">- Laura, Estudiante de Arte</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="/img/aboutUs/perfil3.jpeg" alt="Luca">
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"Cada detalle en las joyas es impresionante. Me siento increíble usándolas."</p>
+                    <p class="name">- Sofía, Blogger de Moda</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="/img/aboutUs/perfil4.jpeg" alt="Mark">
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"Las piezas tienen una calidad inigualable. ¡Muy satisfecho con la compra!"</p>
+                    <p class="name">- Luis, Ingeniero</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="/img/aboutUs/perfil6.jpeg" alt="Sophia">
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"Excelente diseño y calidad. Las joyas son aún más hermosas en persona."</p>
+                    <p class="name">- Manuel, Abogado</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="/img/aboutUs/perfil7.jpeg" alt="Emma">
+                <div class="testimonial-content">
+                    <div class="rating">★★★★★</div>
+                    <p>"Cada joya es una obra de arte. La atención al detalle es verdaderamente admirable."</p>
+                    <p class="name">- Teresa, Docente</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Instagram Section -->
 
-    gtag('config', 'UA-40525870-5');
-</script>
+<section class="instagram">
+    <h2> Instagram</h2>
+    <div class="instagram-gallery">
+        <div class="instagram-item">
+            <img src="/img/products/anillo_2.png" alt="Instagram 1">
+            <div class="overlay">&#9825 202 💬 12</div>
+        </div>
+        <div class="instagram-item">
+            <img src="/img/products/anillo_11.png" alt="Instagram 2">
+            <div class="overlay">&#9825 153 💬 10</div>
+        </div>
+        <div class="instagram-item">
+            <img src="/img/products/anillo_7.png" alt="Instagram 3">
+            <div class="overlay">&#9825 190 💬 29</div>
+        </div>
+        <div class="instagram-item">
+            <img src="/img/products/anillo_4.png" alt="Instagram 4">
+            <div class="overlay">&#9825 300 💬 43</div>
+        </div>
+    </div>
 
+</section>
+
+<!-- Footer -->
+<!--  <footer>
+    <div class="footer-contact">
+        <p>Contact Us</p>
+        <p>jewelryshop@gmail.com</p>
+        <p>+44 123 567 712</p>
+    </div>
+    <div class="footer-links">
+        <p>Customer Service</p>
+        <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+        </ul>
+    </div>
+    <div class="newsletter">
+        <p>Join Our Community</p>
+        <input type="email" placeholder="Enter your email">
+        <button>Sign Up</button>
+    </div>
+</footer> -->
+<!--  <footer>
+<footer class="footer">
+    <div class="footer-column">
+        <h3>CONTACT US</h3>
+        <p>Tower of London, London EC3N 4AB,<br> United Kingdom.</p>
+        <p>(+84) 123 567 712</p>
+        <a href="mailto:jewelryshop@gmail.com">jewelryshop@gmail.com</a>
+    </div>
+    <div class="footer-column">
+        <h3>CUSTOMER SERVICE</h3>
+        <a href="#">Faq</a><br>
+        <a href="#">Size guide</a><br>
+        <a href="#">Shipping</a><br>
+        <a href="#">Order status</a><br>
+        <a href="#">Exchanges</a>
+    </div>
+    <div class="footer-column">
+        <h3>ABOUT US</h3>
+        <a href="#">Our Shops</a><br>
+        <a href="#">Contact</a><br>
+        <a href="#">Artists</a><br>
+        <a href="#">Local Giving</a><br>
+        <a href="#">Press</a>
+    </div>
+    <div class="footer-column newsletter">
+        <h3>JOIN OUR COMMUNITY</h3>
+        <input type="email" placeholder="Enter your email...">
+        <button>SIGN UP</button>
+    </div>
+</footer>
+<div class="footer-bottom">
+    <p>Copyright © 2024. All Right Reserved</p>
+    <div class="payment-icons">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Amex">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Mastercard">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Visa">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Paypal">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Pay">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Klarna">
+    </div>
+    <div class="social-icons">
+        <a href="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png">&#xe005;</a>
+        <a href="#">&#xe006;</a>
+        <a href="#">&#xe007;</a>
+        <a href="#">&#xe008;</a>
+    </div>
+</div>
+</footer> -->
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js'></script>
-<script type="text/javascript" th:src="@{/js/aboutUs.js}"></script>
-
-</body>
 </html>
