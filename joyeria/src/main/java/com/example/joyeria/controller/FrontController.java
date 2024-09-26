@@ -2,9 +2,10 @@ package com.example.joyeria.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/front")
 public class FrontController {
 
     @GetMapping("/")
@@ -25,5 +26,8 @@ public class FrontController {
 
     @GetMapping("/shoppingCart")
     public String shoppingCart(){ return "shopping_cart.html"; }
+
+    @GetMapping("/customerData")
+    public String customerData(){ return "formCustomerData.html"; }
 
 }

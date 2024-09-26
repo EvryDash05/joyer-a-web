@@ -1,0 +1,23 @@
+/* Personalización del botón */
+button.btn:hover {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+/* Personalización para los inputs en focus */
+input:focus {
+    border-color: #ffcc00 !important;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5) !important;
+}
+
+/* Margen inferior entre secciones */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .list-group-item {
+        text-align: center;
+    }
+}
