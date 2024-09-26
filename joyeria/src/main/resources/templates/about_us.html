@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link th:href="@{/css/header.css}" rel="stylesheet"/>
     <link th:href="@{/css/footer.css}" rel="stylesheet"/>
     <link th:href="@{/css/about_us.css}" rel="stylesheet"/>
@@ -13,26 +21,6 @@
 
 <body>
 
-<!-- Header -->
-<!--  <footer>
-<header>
-    <div class="logo">Adena</div>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
-    </nav>
-    <div class="user-actions">
-        <a href="#">Cart</a>
-        <a href="#">Login</a>
-    </div>
-</header>
-</header>
-</footer> -->
 <div th:replace="fragments/header"></div> <!--jalar header-->
 
 <!-- Hero Section -->
@@ -51,15 +39,7 @@
     <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/brand-3.png" alt="MEJURI">
     <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/band.png" alt="PANDORA">
     <img src="https://wpbingosite.com/wordpress/adena/wp-content/uploads/2024/03/brand-2.png" alt="PIAGET">
-
 </section>
-<!-- Brand Logos -->
-<!--  <section class="brands">
-    <img src="guess-logo.png" alt="GUESS">
-    <img src="lagos-logo.png" alt="LAGOS">
-    <img src="mejuri-logo.png" alt="MEJURI">
-    <img src="pandora-logo.png" alt="PANDORA">
-</section> -->
 
 <!-- Products Section -->
 <section class="products">
@@ -182,77 +162,11 @@
     </div>
 
 </section>
-
-<!-- Footer -->
-<!--  <footer>
-    <div class="footer-contact">
-        <p>Contact Us</p>
-        <p>jewelryshop@gmail.com</p>
-        <p>+44 123 567 712</p>
-    </div>
-    <div class="footer-links">
-        <p>Customer Service</p>
-        <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Returns</a></li>
-        </ul>
-    </div>
-    <div class="newsletter">
-        <p>Join Our Community</p>
-        <input type="email" placeholder="Enter your email">
-        <button>Sign Up</button>
-    </div>
-</footer> -->
-<!--  <footer>
-<footer class="footer">
-    <div class="footer-column">
-        <h3>CONTACT US</h3>
-        <p>Tower of London, London EC3N 4AB,<br> United Kingdom.</p>
-        <p>(+84) 123 567 712</p>
-        <a href="mailto:jewelryshop@gmail.com">jewelryshop@gmail.com</a>
-    </div>
-    <div class="footer-column">
-        <h3>CUSTOMER SERVICE</h3>
-        <a href="#">Faq</a><br>
-        <a href="#">Size guide</a><br>
-        <a href="#">Shipping</a><br>
-        <a href="#">Order status</a><br>
-        <a href="#">Exchanges</a>
-    </div>
-    <div class="footer-column">
-        <h3>ABOUT US</h3>
-        <a href="#">Our Shops</a><br>
-        <a href="#">Contact</a><br>
-        <a href="#">Artists</a><br>
-        <a href="#">Local Giving</a><br>
-        <a href="#">Press</a>
-    </div>
-    <div class="footer-column newsletter">
-        <h3>JOIN OUR COMMUNITY</h3>
-        <input type="email" placeholder="Enter your email...">
-        <button>SIGN UP</button>
-    </div>
-</footer>
-<div class="footer-bottom">
-    <p>Copyright © 2024. All Right Reserved</p>
-    <div class="payment-icons">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Amex">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Mastercard">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Visa">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Paypal">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Pay">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-kxLXwUrxWeUlYcwJoBWDns90QWCJC1BGA&s" alt="Klarna">
-    </div>
-    <div class="social-icons">
-        <a href="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png">&#xe005;</a>
-        <a href="#">&#xe006;</a>
-        <a href="#">&#xe007;</a>
-        <a href="#">&#xe008;</a>
-    </div>
-</div>
-</footer> -->
 <div th:replace="fragments/footer :: footer"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+></script>
 </body>
-
 </html>
