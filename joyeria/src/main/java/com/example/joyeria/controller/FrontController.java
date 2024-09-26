@@ -23,4 +23,7 @@ public class FrontController {
     @GetMapping("/aboutUs")
     public String aboutUs(){ return "about_us.html"; }
 
+    @GetMapping("/shoppingCart")
+    public String shoppingCart(){ return "shopping_cart.html"; }
+
 }
