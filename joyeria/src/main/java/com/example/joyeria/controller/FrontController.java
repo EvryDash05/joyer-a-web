@@ -30,4 +30,6 @@ public class FrontController {
     @GetMapping("/customerData")
     public String customerData(){ return "formCustomerData.html"; }
 
+    @GetMapping("/formHome")
+    public String formHome(){ return "formHome.html"; }
 }

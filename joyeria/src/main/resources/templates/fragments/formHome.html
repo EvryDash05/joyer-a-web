@@ -1,0 +1,52 @@
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Contáctanos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- Imagen -->
+                    <div class="col-md-6 d-none d-md-block">
+                        <img src="/img/formHome/formModelo.jpg" alt="Imagen de contacto" class="img-fluid">
+                    </div>
+                    <!-- Formulario -->
+                    <div class="col-md-6">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensaje:</label>
+                                <textarea class="form-control" id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JavaScript de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<!-- Modal automáticamente -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var myModal = new bootstrap.Modal(document.getElementById('formModal'), {
+            keyboard: false
+        });
+        myModal.show(); // Mostrar el modal automáticamente
+    });
+</script>
