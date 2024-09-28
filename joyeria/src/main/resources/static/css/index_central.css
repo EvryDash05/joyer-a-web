@@ -1,6 +1,6 @@
 /* Estilo para el carrusel */
 .hero .carousel-inner img {
-    height: 500px; /* Ajusta la altura según tus necesidades */
+    height: 600px; /* Ajusta la altura según tus necesidades */
     object-fit: cover; /* Mantiene la proporción de la imagen */
   }
   
