@@ -13,29 +13,39 @@
 
     <body>
         <div th:replace="fragments/header :: header"></div>
-        <div class="contenedor">
-            <div class="banner">
-                <h1> Iniciar Sesion</h1>
+        <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Sign In</h1>
+                <p>Enter your details below</p>
             </div>
-            <div class="FormLogin">
-                <form method="post" th:object="${loginRequest}">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nombre de usuario o Correo electronico</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{username}">
-                        <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label" th:field="*{password}">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Acepto terminos y condiciones</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-                </form>
+            <form class="login-form" method="post" th:object="${loginRequest}">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" th:field="*{username}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" th:field="*{password}" required>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn-login">Sign In</button>
+            </form>
+            <div class="social-login">
+                <p>Or sign in with</p>
+                <div class="social-buttons">
+                    <button class="btn-social btn-facebook">Facebook</button>
+                    <button class="btn-social btn-google">Google</button>
+                    <button class="btn-social btn-apple">Apple</button>
+                </div>
             </div>
         </div>
+    </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
