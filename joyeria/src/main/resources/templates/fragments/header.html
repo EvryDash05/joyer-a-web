@@ -8,7 +8,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" th:href="@{/front/home}">
                 <img src="/img/header/logo.png" alt="Mi Logo"
                     class="logo-img">
             </a>
@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/products}" >Productos</a>
+                        <a class="nav-link" th:href="@{/front/products}">Productos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button"
@@ -31,18 +31,8 @@
                             <li><a class="dropdown-item" href="#">Category 2</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Products
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                            <li><a class="dropdown-item" href="#">Product 1</a></li>
-                            <li><a class="dropdown-item" href="#">Product 2</a></li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" th:href="@{/front/aboutUs}">About Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="pageDropdown" role="button"
@@ -57,10 +47,14 @@
                 </ul>
             </div>
             <div class="d-flex align-items-center">
+                <!--Busqueda ícono-->
                 <a href="#" class="me-3"><i class="bi bi-search"></i></a>
-                <a href="#" class="me-3"><i class="bi bi-person"></i></a>
+                <!--Usuario ícono-->
+                <a th:href="@{/registerForm}" class="me-3"><i class="bi bi-person"></i></a>
+                <!--Favoritos ícono-->
                 <a href="#" class="me-3"><i class="bi bi-heart"></i><span class="badge bg-secondary">0</span></a>
-                <a href="#"><i class="bi bi-cart"></i><span class="badge bg-secondary">0</span></a>
+                <!--Carrito de compras ícono-->
+                <a th:href="@{/front/shoppingCart}"><i class="bi bi-cart"></i><span class="badge bg-secondary">0</span></a>
             </div>
         </div>
 
