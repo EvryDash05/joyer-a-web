@@ -1,29 +1,28 @@
 <header th:fragments="header">
     <!-- Top bar -->
     <div class="top-bar text-center">
-        <span>Quick Sale: 20% Off Products Purchased Today</span>
-        <span class="float-end me-3">Email: joyeriamarli@gmail.com</span>
+        <span th:text="#{navbar.sale}">Quick Sale: 20% Off Products Purchased Today</span>
+        <span class="float-end me-3" th:text="#{navbar.email}">Email: joyeriamarli@gmail.com</span>
     </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/front/home}">
-                <img src="/img/header/logo.png" alt="Mi Logo"
-                    class="logo-img">
+                <img src="/img/header/logo.png" alt="Mi Logo" class="logo-img">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/front/products}">Productos</a>
+                        <a class="nav-link" th:text="#{navbar.products}" th:href="@{/front/products}">Productos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             Shop
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="shopDropdown">
@@ -32,33 +31,33 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/front/aboutUs}">About Us</a>
+                        <a class="nav-link" th:text="#{navbar.aboutUs}" th:href="@{/front/aboutUs}">About Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="pageDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                           data-bs-toggle="dropdown" aria-expanded="false" th:text="#{navbar.page}">
                             Page
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="pageDropdown">
-                            <li><a class="dropdown-item" href="#">About Us</a></li>
-                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                            <li><a class="dropdown-item" th:text="#{navbar.aboutUs}" href="#">About Us</a></li>
+                            <li><a class="dropdown-item" th:text="#{navbar.contact}" href="#">Contact</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
             <div class="d-flex align-items-center">
-                <!--Busqueda ícono-->
+                <!-- Búsqueda ícono -->
                 <a href="#" class="me-3"><i class="bi bi-search"></i></a>
-                <!--Usuario ícono-->
+                <!-- Usuario ícono -->
                 <a th:href="@{/registerForm}" class="me-3"><i class="bi bi-person"></i></a>
-                <!--Favoritos ícono-->
+                <!-- Favoritos ícono -->
                 <a href="#" class="me-3"><i class="bi bi-heart"></i><span class="badge bg-secondary">0</span></a>
-                <!--Carrito de compras ícono-->
+                <!-- Carrito de compras ícono -->
                 <a th:href="@{/front/shoppingCart}"><i class="bi bi-cart"></i><span class="badge bg-secondary">0</span></a>
             </div>
         </div>
-
     </nav>
+
 </header>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>

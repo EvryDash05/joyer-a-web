@@ -4,6 +4,14 @@
 server:
   port: 8080
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    cache: false
+  messages:
+    basename: classpath:/I18N/messages
+    encoding: UTF-8
   jpa:
     hibernate:
       ddl-auto: validate
