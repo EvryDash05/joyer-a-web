@@ -174,7 +174,10 @@ public abstract class DatabaseConstant {
     public static final String ORDER_ITEM_QUANTITY = "quantity";
 
     /* Property for the price column on table "order_item" */
-    public static final String ORDER_ITEM_PRICE = "price";
+    public static final String ORDER_ITEM_PRICE = "total_price";
+
+    /* Property for the unit price column on table "order_item" */
+    public static final String ORDER_UNIT_PRICE = "unit_price";
 
     /**
      * <h2>Cart table 🛢</h2>
