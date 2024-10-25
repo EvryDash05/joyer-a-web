@@ -38,7 +38,7 @@ public class CustomerEntity {
     @Column(name = DatabaseConstant.ADDRESS, length = 100, nullable = false)
     private String address;
 
-/*    @ManyToMany
+    @ManyToMany
     @JoinTable(
             name = DatabaseConstant.CUSTOMER_ROLE_TABLE,
             joinColumns = @JoinColumn(name = DatabaseConstant.CUSTOMER_ID),
@@ -53,6 +53,6 @@ public class CustomerEntity {
     private List<PaymentEntity> payments;
 
     @OneToMany(mappedBy = "customer")
-    private List<OrderEntity> orders;*/
+    private List<OrderEntity> orders;
 
 }
