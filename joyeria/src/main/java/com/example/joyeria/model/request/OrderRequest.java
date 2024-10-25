@@ -11,18 +11,20 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentRequest {
+public class OrderRequest {
     private String customerName;
+    private String shipmentId;
+    private String paymentId;
     @Builder.Default
-    private LocalDateTime paymentDate = LocalDateTime.now();
-    private BigDecimal amount;
-    private String paymentMethod;
-    private List<OrderItemRequest> orderTimeRequests;
+    private LocalDateTime orderDate = LocalDateTime.now();
+    private BigDecimal totalPrice;
+    private List<OrderItemRequest> items;
 
-    public BigDecimal calculateAmount(){
-        return this.orderTimeRequests.stream()
+    public BigDecimal calculateTotalPrice(){
+        this.totalPrice = this.items.stream()
                 .map(OrderItemRequest::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
+        return this.totalPrice;
+    };
 
 }

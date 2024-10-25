@@ -1,4 +1,4 @@
-package com.example.joyeria.models.response;
+package com.example.joyeria.model.response;
 
 import lombok.*;
 
