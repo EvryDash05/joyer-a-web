@@ -7,25 +7,25 @@ public abstract class DatabaseConstant {
      * <h2>Authority table 🛢</h2>
      */
     /* Property for the table name of "tb_authorities" */
-    public static String AUTHORITIES_TABLE = "tb_authorities";
+    public static final String AUTHORITIES_TABLE = "tb_authorities";
 
     /* Property for the primary key on table "tb_authorities" */
-    public static String AUTHORITIES_ID = "authority_id";
+    public static final String AUTHORITIES_ID = "authority_id";
 
     /* Property for the authority name on table "tb_authorities" */
-    public static String AUTHORITIES_NAME = "authority";
+    public static final String AUTHORITIES_NAME = "authority";
 
     /**
      * <h2>Role table 🛢</h2>
      */
     /* Property for the table name of table "tb_roles" */
-    public static String ROLE_TABLE = "tb_roles";
+    public static final String ROLE_TABLE = "tb_roles";
 
     /* Property for the primary key on table "tb_roles" */
-    public static String ROLE_ID = "role_id";
+    public static final String ROLE_ID = "role_id";
 
     /* Property for the role name on table "tb_roles" */
-    public static String ROLE_NAME = "role_name";
+    public static final String ROLE_NAME = "role_name";
 
     /**
      * <h1>BUSINESS TABLES</h1>
