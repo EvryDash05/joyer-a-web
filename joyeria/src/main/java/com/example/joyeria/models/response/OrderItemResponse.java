@@ -1,4 +1,4 @@
-package com.example.joyeria.model.response;
+package com.example.joyeria.models.response;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package com.example.joyeria.model.request;
+package com.example.joyeria.models.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;

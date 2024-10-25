@@ -1,4 +1,4 @@
-package com.example.joyeria.model.response;
+package com.example.joyeria.models.request;
 
 import lombok.*;
 
@@ -9,10 +9,11 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShipmentResponse {
-    private String shipmentId;
-    private LocalDateTime shipmentDate;
+public class ShipmentRequest {
     private String address;
+    @Builder.Default
+    private LocalDateTime date = LocalDateTime.now();
     private String city;
     private String zipCode;
+    private String customerName;
 }
