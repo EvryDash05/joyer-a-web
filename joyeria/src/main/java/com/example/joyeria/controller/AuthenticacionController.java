@@ -4,8 +4,8 @@
  */
 package com.example.joyeria.controller;
 
-import com.example.joyeria.model.request.LoginAuthRequest;
-import com.example.joyeria.model.request.RegisterRequest;
+import com.example.joyeria.models.request.LoginAuthRequest;
+import com.example.joyeria.models.request.RegisterRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
