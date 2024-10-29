@@ -1,8 +1,11 @@
 package com.example.joyeria.business;
 
 import com.example.joyeria.commons.constants.ErrorConstant;
+import com.example.joyeria.commons.enums.Identifier;
+import com.example.joyeria.commons.utilities.Utils;
 import com.example.joyeria.entities.ProductEntity;
 import com.example.joyeria.exceptions.custom.BusinessException;
+import com.example.joyeria.models.request.ProductRequest;
 import com.example.joyeria.models.response.ProductResponse;
 import com.example.joyeria.repository.ProductRepository;
 import com.example.joyeria.service.ProductService;
@@ -23,6 +26,19 @@ public class ProductBusiness implements ProductService {
     public List<ProductResponse> getAllProducts() {
         return this.productRepository.findAll().stream().map(this::toResponse)
                 .toList();
+    }
+
+    @Override
+    public ProductResponse createProduct(ProductRequest productRequest) {
+        ProductEntity productEntity = ProductEntity.builder()
+                .productId(Utils.generateRandomId(Identifier.PRODUCT.getValue()))
+                .productName(productRequest.getName())
+                .description(productRequest.getDescription())
+                .price(productRequest.getPrice())
+                .stock(productRequest.getQuantity())
+                .urlImg(productRequest.getImageUrl())
+                .build();
+        return this.toResponse(this.productRepository.save(productEntity));
     }
 
     @Override

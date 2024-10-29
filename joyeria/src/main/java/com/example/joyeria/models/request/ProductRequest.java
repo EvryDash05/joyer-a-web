@@ -5,6 +5,7 @@
 package com.example.joyeria.models.request;
 
 import java.math.BigDecimal;
+
 import lombok.*;
 
 @Getter
@@ -12,18 +13,11 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-/**
- *
- * @author Edu
- */
 public class ProductRequest {
-     private String productId;
+    private String productId;
     private String name;
     private String description;
     private BigDecimal price;
     private Integer quantity;
     private String imageUrl;
-    private List<OrderItemRequest> itemList;
-
 }
