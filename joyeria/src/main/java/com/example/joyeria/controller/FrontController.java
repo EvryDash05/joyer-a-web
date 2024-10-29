@@ -32,4 +32,14 @@ public class FrontController {
 
     @GetMapping("/formHome")
     public String formHome(){ return "formHome.html"; }
+
+    @GetMapping("/register")
+    public String formRegister(){ return "registerForm.html"; }
+
+    @GetMapping("/login")
+    public String formLogin(){ return "login.html"; }
+
+    @GetMapping("/productsForm")
+    public String productsForm(){ return "productsForm.html"; }
+
 }

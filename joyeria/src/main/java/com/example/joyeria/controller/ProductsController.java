@@ -1,8 +1,12 @@
 package com.example.joyeria.controller;
 
+import com.example.joyeria.models.request.ProductRequest;
+import com.example.joyeria.models.response.ProductResponse;
+import com.example.joyeria.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +16,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
+@RequiredArgsConstructor
+@RequestMapping("/v1/api")
 public class ProductsController {
+
+    private final ProductService productService;
+
+    @PostMapping("/createProduct")
+    public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest request) {
+        return ResponseEntity.ok(this.productService.createProduct(request));
+    }
 
     @GetMapping("/images")
     public List<String> getImages() throws IOException {

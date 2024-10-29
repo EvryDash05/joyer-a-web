@@ -4,46 +4,29 @@
  */
 package com.example.joyeria.controller;
 
-import com.example.joyeria.models.request.LoginAuthRequest;
-import com.example.joyeria.models.request.RegisterRequest;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.example.joyeria.models.request.AuthCreateUserRequest;
+import com.example.joyeria.models.request.AuthLoginRequest;
+import com.example.joyeria.models.response.CustomerResponse;
+import com.example.joyeria.service.CustomerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-
-@Controller
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/v1/api")
 public class AuthenticacionController {
 
-    @GetMapping("/loginForm")
-    public ModelAndView showLoginForm() {
-        ModelAndView modelandview = new ModelAndView("login");
-        modelandview.addObject("loginRequest", new LoginAuthRequest());
-        return modelandview;
+    private final CustomerService customerService;
+
+    @PostMapping("/login")
+    public ResponseEntity<CustomerResponse> login(@RequestBody AuthLoginRequest request) {
+        return ResponseEntity.ok(this.customerService.getCustomerByEmail(request.getEmail()));
     }
 
-    @PostMapping("/loginForm")
-    public ModelAndView loginForm(@ModelAttribute LoginAuthRequest loginRequest, RedirectAttributes redirectAttributes) {
-        ModelAndView modelandview = new ModelAndView();
-        modelandview.setViewName("index");
-        return modelandview;
-    }
-
-    @GetMapping("/registerForm")
-    public ModelAndView showRegisterForm(Model model) {
-        ModelAndView modelandview = new ModelAndView("registerForm");
-        modelandview.addObject("registerRequest", new RegisterRequest());
-        return modelandview;
-    }
-
-    @PostMapping("/registerForm")
-    public ModelAndView createUser(@ModelAttribute RegisterRequest registerRequest){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-        return modelAndView;
+    @PostMapping("/register")
+    public ResponseEntity<?> createUser(@RequestBody AuthCreateUserRequest registerRequest){
+        return ResponseEntity.ok(this.customerService.createCustomer(registerRequest));
     }
 
 }
