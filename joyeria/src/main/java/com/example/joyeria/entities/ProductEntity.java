@@ -35,15 +35,16 @@ public class ProductEntity {
     @Column(name = DatabaseConstant.DESCRIPTION, nullable = false)
     private String description;
 
+    @Column(name = "img", nullable = false)
+    @Lob
+    private byte[] img;
+
     @Column(name = DatabaseConstant.PRICE, nullable = false)
     @Digits(integer = 8, fraction = 2)
     private BigDecimal price;
 
     @Column(name = DatabaseConstant.STOCK, nullable = false)
     private Integer stock;
-
-    @Column(name = DatabaseConstant.URL_IMG, nullable = false)
-    private String urlImg;
 
     @OneToMany(mappedBy = "product")
     private List<OrderItemEntity> orderItems;
