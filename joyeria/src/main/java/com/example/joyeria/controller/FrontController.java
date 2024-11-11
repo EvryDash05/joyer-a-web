@@ -42,4 +42,7 @@ public class FrontController {
     @GetMapping("/productsForm")
     public String productsForm(){ return "productsForm.html"; }
 
+    @GetMapping("/productDetail")
+    public String productDetail(){ return "productDetail.html"; }
+
 }
