@@ -10,12 +10,14 @@ import com.example.joyeria.models.response.ProductResponse;
 import com.example.joyeria.repository.ProductRepository;
 import com.example.joyeria.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ProductBusiness implements ProductService {
@@ -30,15 +32,20 @@ public class ProductBusiness implements ProductService {
 
     @Override
     public ProductResponse createProduct(ProductRequest productRequest) {
-        ProductEntity productEntity = ProductEntity.builder()
-                .productId(Utils.generateRandomId(Identifier.PRODUCT.getValue()))
-                .productName(productRequest.getName())
-                .description(productRequest.getDescription())
-                .price(productRequest.getPrice())
-                .stock(productRequest.getQuantity())
-                .urlImg(productRequest.getImageUrl())
-                .build();
-        return this.toResponse(this.productRepository.save(productEntity));
+        try {
+            ProductEntity productEntity = ProductEntity.builder()
+                    .productId(Utils.generateRandomId(Identifier.PRODUCT.getValue()))
+                    .productName(productRequest.getName())
+                    .description(productRequest.getDescription())
+                    .price(productRequest.getPrice())
+                    .stock(productRequest.getQuantity())
+                    .img(productRequest.getImg().getBytes())
+                    .build();
+            return this.toResponse(this.productRepository.save(productEntity));
+        } catch (Exception e){
+            log.info(e.getMessage());
+            throw new BusinessException(ErrorConstant.GENERIC_ERROR_CODE, ErrorConstant.GENERIC_ERROR_MESSAGE);
+        }
     }
 
     @Override

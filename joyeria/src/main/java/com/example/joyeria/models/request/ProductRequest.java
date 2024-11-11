@@ -7,6 +7,7 @@ package com.example.joyeria.models.request;
 import java.math.BigDecimal;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -19,5 +20,5 @@ public class ProductRequest {
     private String description;
     private BigDecimal price;
     private Integer quantity;
-    private String imageUrl;
+    private MultipartFile img;
 }

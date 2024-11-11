@@ -7,21 +7,18 @@ document.querySelector('#product-form').addEventListener('submit', async (e) => 
     const data = Object.fromEntries(new FormData(e.target));
     console.log(data);
 
-    try {
+    const response = await fetch(ENDPOINT_REGISTER_PRODUCT, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: data
+    }).catch(e => {
+        console.log(e)
+    })
 
-        const response = await fetch(ENDPOINT_REGISTER_PRODUCT, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-
-        console.log(response)
-        alert("Product created successfully");
-    } catch (e) {
-        console.error(e);
-        alert("Error to register a product")
+    if(response.ok){
+        console.log("Producto creado")
     }
 
 })

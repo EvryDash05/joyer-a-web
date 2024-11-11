@@ -21,12 +21,12 @@
 
         <!-- Segunda fila con formulario -->
         <div class="row2">
-            <form method="post" id="product-form">
+            <form method="post" id="product-form" enctype="multipart/form-data">
                 <input type="text" placeholder="Nombre del Producto" name="name" required>
                 <input type="text" placeholder="Descripcion" name="description" required>
                 <input type="text" placeholder="Precio Unitario" name="price" required>
                 <input type="text" placeholder="Cantidad Inicial" name="quantity" required>
-                <input type="text" id="imageUrl" placeholder="URL de la Imagen" name="imageUrl" required>
+                <input type="file" id="imageUrl" placeholder="Imágen" name="img" multiple="multiple" accept="image/*" required>
                 <button type="submit">Agregar Nuevo producto</button>
             </form>
         </div>
