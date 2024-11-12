@@ -19,6 +19,7 @@ spring:
       static-locations: classpath:/static/
   http:
     multipart:
+      enabled: true
       max-file-size: 20MB
       max-request-size: 20MB
 flyway:
@@ -36,6 +37,17 @@ security:
     lifeTime: 631138000000
     user:
       generator: Joyeria-Marli
+
+# ===================================================================
+# LOG PROPERTIES
+# ===================================================================
+logging:
+  level:
+    root: INFO
+    com.tu.paquete: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: '[%X{data}%thread] [%X{X-B3-TraceId:-}] - %5p'
 
 # ===================================================================
 # URL ENDPOINTS
