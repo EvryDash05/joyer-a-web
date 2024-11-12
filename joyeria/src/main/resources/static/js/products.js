@@ -13,8 +13,8 @@ function addProductCard(prd) {
                             <p class="card-text">S/.${prd.price}</p>
                         </div>
                     </div>
-                    <button class="btn btn-primary" onclick="showProductDetails()">Ver producto</button>
-                </div>
+                    <button class="btn btn-primary" onclick="showProductDetails('${prd.productId}')">Ver producto</button>
+               </div>
             </div>
         `
 
