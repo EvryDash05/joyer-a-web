@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +33,11 @@ public class ProductBusiness implements ProductService {
 
     @Override
     public ProductResponse createProduct(ProductRequest productRequest) {
+        if (!this.validateImage(productRequest.getImg())) {
+            throw new RuntimeException("Image is not valid");
+        }
         try {
+            log.info("Create product");
             ProductEntity productEntity = ProductEntity.builder()
                     .productId(Utils.generateRandomId(Identifier.PRODUCT.getValue()))
                     .productName(productRequest.getName())
@@ -68,6 +73,23 @@ public class ProductBusiness implements ProductService {
 
     private ProductResponse toResponse(ProductEntity entity){
         return new ModelMapper().map(entity, ProductResponse.class);
+    }
+
+    private boolean validateImage(MultipartFile file) {
+        long fileSize = file.getSize();
+        long maxFile = 20 * 1024 * 1024;
+
+        if (fileSize > maxFile) {
+            return false;
+        }
+
+        // Validar tipo de archivo
+        String contentType = file.getContentType();
+        if (contentType == null || (!contentType.equals("image/png") && !contentType.equals("image/jpeg"))) {
+            return false; // Si no es una imagen PNG o JPEG
+        }
+
+        return true;
     }
 
 }
