@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-9 image_col order-lg-2 order-1">
                         <div class="single_product_image">
-                            <img class="single_product_image_background"
+                            <img id="product-img" class="single_product_image_background"
                                  src="/img/products/Athena%20Earrings%20-%20Raised%20Heart%20Shape%20Earrings%20in%20Gold.jpeg"
                                  style="width: 80% !important;"/>
                         </div>
@@ -31,10 +31,10 @@
             <div class="product_details">
                 <div class="product_details_title">
                     <h2 id="titleArticulo" style="color: blue !important;">Joya</h2>
-                    <p>Descripción: asdaisdjlkajkdlajlkjdlkajlksdkladas</p>
+                    <p id="description">Descripción: </p>
                 </div>
-                <div class="product_price">S/.500</div>
-                <h1 class="product_stock">Stock: 1</h1>
+                <div class="product_price" id="price">S/.500</div>
+                <h1 class="product_stock" id="stock">Stock: 1</h1>
                 <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                     <span style="font-size: 18px;">Cantidad: 0</span>
                     <br>
@@ -45,5 +45,6 @@
     </div>
 </div>
 <div th:replace="fragments/footer"></div>
+<script type="text/javascript" th:src="@{/js/productDetail.js}"></script>
 </body>
 </html>
