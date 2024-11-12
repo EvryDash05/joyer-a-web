@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS tb_product(
     description TEXT NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     stock INTEGER NOT NULL,
-    img TINYBLOB NOT NULL,
+    img MEDIUMBLOB NOT NULL,
     PRIMARY KEY (product_id)
 );
 
