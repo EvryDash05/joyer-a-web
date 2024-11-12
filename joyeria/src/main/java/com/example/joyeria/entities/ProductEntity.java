@@ -35,7 +35,7 @@ public class ProductEntity {
     @Column(name = DatabaseConstant.DESCRIPTION, nullable = false)
     private String description;
 
-    @Column(name = "img", nullable = false)
+    @Column(name = "img", nullable = false, columnDefinition = "MEDIUMBLOB")
     @Lob
     private byte[] img;
 
