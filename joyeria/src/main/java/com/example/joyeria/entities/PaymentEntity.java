@@ -42,7 +42,7 @@ public class PaymentEntity {
     )
     private CustomerEntity customer;
 
-    @OneToMany(mappedBy = "payment")
-    private List<OrderEntity> orders;
+    @OneToOne(mappedBy = "payment")
+    private OrderEntity order;
 
 }

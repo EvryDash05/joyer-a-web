@@ -43,7 +43,7 @@ public class OrderEntity {
     )
     private ShipmentEntity shipment;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(
             name = DatabaseConstant.PAYMENT_ID,
             referencedColumnName = DatabaseConstant.PAYMENT_ID
