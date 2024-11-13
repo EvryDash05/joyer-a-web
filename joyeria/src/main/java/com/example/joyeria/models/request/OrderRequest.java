@@ -12,19 +12,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderRequest {
-    private String customerName;
+    private String email;
     private String shipmentId;
-    private String paymentId;
+    private PaymentRequest paymentRequest;
     @Builder.Default
     private LocalDateTime orderDate = LocalDateTime.now();
-    private BigDecimal totalPrice;
     private List<OrderItemRequest> items;
 
     public BigDecimal calculateTotalPrice(){
-        this.totalPrice = this.items.stream()
+        return this.items.stream()
                 .map(OrderItemRequest::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return this.totalPrice;
     };
 
 }
