@@ -15,5 +15,5 @@ public class ShipmentRequest {
     private LocalDateTime date = LocalDateTime.now();
     private String city;
     private String zipCode;
-    private String customerName;
+    private String email;
 }
