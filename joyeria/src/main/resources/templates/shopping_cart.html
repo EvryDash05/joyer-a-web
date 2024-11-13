@@ -21,57 +21,8 @@
 <div class="container my-5">
     <h2 class="mb-4">Tu Carrito de Compras</h2>
     <div class="row">
-        <div class="col-md-8">
-            <!-- Lista de productos en el carrito -->
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/img/products/anillo_1" class="img-fluid rounded" alt="Anillo de oro">
-                        </div>
-                        <div class="col-md-6">
-                            <h5 class="card-title">Anillo de Oro 18k</h5>
-                            <p class="card-text">Talla: 7</p>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="input-group input-group-sm">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="1">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-end">
-                            <p class="fw-bold">$599.99</p>
-                            <button class="btn btn-sm btn-outline-danger">Eliminar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/img/products/collar_1" class="img-fluid rounded" alt="Collar de plata">
-                        </div>
-                        <div class="col-md-6">
-                            <h5 class="card-title">Collar de Plata 925</h5>
-                            <p class="card-text">Longitud: 45cm</p>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="input-group input-group-sm">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="1">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-end">
-                            <p class="fw-bold">$299.99</p>
-                            <button class="btn btn-sm btn-outline-danger">Eliminar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="products-container" class="col-md-8">
+            <!--Lista de productos seleccionados-->
         </div>
 
         <div class="col-md-4">
@@ -82,7 +33,7 @@
                     <hr>
                     <div class="d-flex justify-content-between mb-2">
                         <span>Subtotal</span>
-                        <span>$899.98</span>
+                        <span id="subtotal">$899.98</span>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <span>Envío</span>
@@ -91,16 +42,16 @@
                     <hr>
                     <div class="d-flex justify-content-between mb-3">
                         <span class="fw-bold">Total</span>
-                        <span class="fw-bold">$909.98</span>
+                        <span class="fw-bold" id="total">$909.98</span>
                     </div>
-                    <button class="btn btn-primary w-100 mb-2">Proceder al Pago</button>
-                    <button class="btn btn-outline-secondary w-100">Seguir Comprando</button>
+                    <button class="btn btn-primary w-100 mb-2" onclick="goToPayment()">Proceder al Pago</button>
+                    <button class="btn btn-outline-secondary w-100" onclick="goToProducts()">Seguir Comprando</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div th:replace="fragments/footer :: footer"></div>
-<script type="text/javascript" th:src="@{/js/products.js}"></script>
+<script type="text/javascript" th:src="@{/js/shoppingCart.js}"></script>
 </body>
 </html>
