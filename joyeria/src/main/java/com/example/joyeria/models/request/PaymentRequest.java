@@ -12,17 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentRequest {
-    private String customerName;
+    private String email;
     @Builder.Default
     private LocalDateTime paymentDate = LocalDateTime.now();
-    private BigDecimal amount;
     private String paymentMethod;
-    private List<OrderItemRequest> orderTimeRequests;
-
-    public BigDecimal calculateAmount(){
-        return this.orderTimeRequests.stream()
-                .map(OrderItemRequest::getPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
-
 }
