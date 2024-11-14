@@ -19,6 +19,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +45,7 @@ public class OrderBusiness implements OrderService {
         Optional<ShipmentEntity> findShipment = this.shipmentRepository.findById(request.getShipmentId());
 
         if (findCustomer.isPresent() && findShipment.isPresent()) {
-            BigDecimal totalPrice = request.calculateTotalPrice();
+            BigDecimal totalPrice = request.calculateTotalPrice().add(new BigDecimal(10));
             PaymentEntity payment = this.paymentBusiness.createPayment(request.getPaymentRequest(), totalPrice);
             OrderEntity newOrder = OrderEntity.builder()
                     .orderId(Utils.generateRandomId(Identifier.ORDER.getValue()))
