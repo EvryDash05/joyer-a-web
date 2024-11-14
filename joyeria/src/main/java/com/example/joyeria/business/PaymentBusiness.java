@@ -34,10 +34,9 @@ public class PaymentBusiness implements PaymentService {
     }
 
     @Override
-    public void createPayment(PaymentRequest paymentRequest) {
-        Optional<CustomerEntity> findCustomer = this.CustomerRepository.findCustomerByUsername(paymentRequest.getCustomerName());
+    public PaymentEntity createPayment(PaymentRequest paymentRequest, BigDecimal amount) {
+        Optional<CustomerEntity> findCustomer = this.CustomerRepository.findCustomerByEmail(paymentRequest.getEmail());
         if (findCustomer.isPresent()) {
-            BigDecimal amount = paymentRequest.calculateAmount();
             PaymentEntity newPayment = PaymentEntity.builder()
                     .paymentId(Utils.generateRandomId(Identifier.PAYMENT.getValue()))
                     .paymentDate(paymentRequest.getPaymentDate())
@@ -45,7 +44,7 @@ public class PaymentBusiness implements PaymentService {
                     .paymentMethod(paymentRequest.getPaymentMethod())
                     .customer(findCustomer.get())
                     .build();
-            this.paymentRepository.save(newPayment);
+            return this.paymentRepository.save(newPayment);
         } else {
             throw new BusinessException(ErrorConstant.GENERIC_ERROR_CODE, ErrorConstant.GENERIC_ERROR_MESSAGE);
         }
