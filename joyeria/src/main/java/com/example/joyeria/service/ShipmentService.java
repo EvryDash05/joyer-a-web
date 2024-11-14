@@ -9,6 +9,7 @@ public interface ShipmentService {
     List<ShipmentResponse> getAllShipments();
     void createShipment(ShipmentRequest shipmentRequest);
     ShipmentResponse getShipmentById(String shipmentId);
+    List<ShipmentResponse> findShipmentListByCustomerId(String customerId);
     void updateShipment(ShipmentRequest shipmentRequest);
     void deleteByShipmentId(String shipmentId);
 }

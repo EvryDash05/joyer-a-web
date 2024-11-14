@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,13 +34,14 @@ public class ShipmentBusiness implements ShipmentService {
 
     @Override
     public void createShipment(ShipmentRequest shipmentRequest) {
-        Optional<CustomerEntity> findCustomer = this.customerRepository.findCustomerByUsername(shipmentRequest.getCustomerName());
+        Optional<CustomerEntity> findCustomer = this.customerRepository.findCustomerByEmail(shipmentRequest.getEmail());
         if (findCustomer.isPresent()) {
             ShipmentEntity newShipment = ShipmentEntity.builder()
                     .shipmentId(Utils.generateRandomId(Identifier.SHIPMENT.getValue()))
                     .address(shipmentRequest.getAddress())
                     .shipmentDate(shipmentRequest.getDate())
                     .city(shipmentRequest.getCity())
+                    .zipCode(shipmentRequest.getZipCode())
                     .customer(findCustomer.get())
                     .build();
             this.shipmentRepository.save(newShipment);
@@ -55,6 +57,12 @@ public class ShipmentBusiness implements ShipmentService {
             throw new BusinessException(ErrorConstant.NOT_FOUND_CODE, ErrorConstant.SHIPMENT_NOT_FOUND);
         }
         return this.toResponse(findShipment.get());
+    }
+
+    @Override
+    public List<ShipmentResponse> findShipmentListByCustomerId(String customerId) {
+        return this.shipmentRepository.findByCustomerId(customerId).stream().map(this::toResponse)
+                .toList();
     }
 
     @Override
