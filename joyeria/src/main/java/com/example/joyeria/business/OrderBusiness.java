@@ -12,7 +12,6 @@ import com.example.joyeria.models.request.OrderRequest;
 import com.example.joyeria.models.response.OrderResponse;
 import com.example.joyeria.repository.CustomerRepository;
 import com.example.joyeria.repository.OrderRepository;
-import com.example.joyeria.repository.PaymentRepository;
 import com.example.joyeria.repository.ShipmentRepository;
 import com.example.joyeria.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +29,8 @@ public class OrderBusiness implements OrderService {
     private final OrderRepository orderRepository;
     private final CustomerRepository customerRepository;
     private final ShipmentRepository shipmentRepository;
-    private final PaymentRepository paymentRepository;
     private final OrderItemBusiness orderItemBusiness;
+    private final PaymentBusiness paymentBusiness;
 
     @Override
     public List<OrderResponse> getAllOrders() {
@@ -41,17 +40,18 @@ public class OrderBusiness implements OrderService {
 
     @Override
     public void createOrder(OrderRequest request) {
-        Optional<CustomerEntity> findCustomer = this.customerRepository.findCustomerByUsername(request.getCustomerName());
+        Optional<CustomerEntity> findCustomer = this.customerRepository.findCustomerByEmail(request.getEmail());
         Optional<ShipmentEntity> findShipment = this.shipmentRepository.findById(request.getShipmentId());
-        Optional<PaymentEntity> findPayment = this.paymentRepository.findById(request.getPaymentId());
 
         if (findCustomer.isPresent() && findShipment.isPresent()) {
             BigDecimal totalPrice = request.calculateTotalPrice();
+            PaymentEntity payment = this.paymentBusiness.createPayment(request.getPaymentRequest(), totalPrice);
             OrderEntity newOrder = OrderEntity.builder()
                     .orderId(Utils.generateRandomId(Identifier.ORDER.getValue()))
                     .customer(findCustomer.get())
                     .shipment(findShipment.get())
-                    .payment(findPayment.get())
+                    .orderDate(request.getOrderDate())
+                    .payment(payment)
                     .totalPrice(totalPrice)
                     .build();
             this.orderRepository.save(newOrder);
@@ -65,7 +65,7 @@ public class OrderBusiness implements OrderService {
     @Override
     public OrderResponse getOrderById(String orderId) {
         Optional<OrderEntity> findOrder = this.orderRepository.findById(orderId);
-        if(findOrder.isEmpty()){
+        if (findOrder.isEmpty()) {
             throw new BusinessException(ErrorConstant.NOT_FOUND_CODE, ErrorConstant.PAYMENT_NOT_FOUND);
         }
         return this.toResponse(findOrder.get());
@@ -74,7 +74,7 @@ public class OrderBusiness implements OrderService {
     @Override
     public void deleteByOrderId(String orderId) {
         Optional<OrderEntity> findOrder = this.orderRepository.findById(orderId);
-        if(findOrder.isEmpty()){
+        if (findOrder.isEmpty()) {
             throw new BusinessException(ErrorConstant.NOT_FOUND_CODE, ErrorConstant.PAYMENT_NOT_FOUND);
         }
         this.orderRepository.delete(findOrder.get());

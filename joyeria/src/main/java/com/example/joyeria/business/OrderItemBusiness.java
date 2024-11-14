@@ -12,12 +12,15 @@ import com.example.joyeria.repository.OrderRepository;
 import com.example.joyeria.repository.ProductRepository;
 import com.example.joyeria.service.OrderItemService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderItemBusiness implements OrderItemService {
@@ -29,11 +32,11 @@ public class OrderItemBusiness implements OrderItemService {
     @Override
     public List<OrderItemResponse> getAllItemsByOrderId(String orderId) {
         Optional<OrderEntity> findOrderEntity = orderRepository.findById(orderId);
-        if(findOrderEntity.isPresent()) {
+        if (findOrderEntity.isPresent()) {
             return findOrderEntity.get().getOrderItems()
                     .stream().map(this::toResponse)
                     .toList();
-        } else{
+        } else {
             throw new BusinessException(ErrorConstant.NOT_FOUND_CODE, ErrorConstant.ORDER_NOT_FOUND);
         }
     }
@@ -41,25 +44,27 @@ public class OrderItemBusiness implements OrderItemService {
     @Override
     public void createItemOrder(OrderItemRequest orderItemRequest, OrderEntity orderEntity) {
         Optional<ProductEntity> findProduct = this.productRepository.findById(orderItemRequest.getProductId());
+        BigDecimal totalPrice = findProduct.get().getPrice().multiply(new BigDecimal(orderItemRequest.getQuantity()));
         OrderItemEntity newOrderItemEntity = OrderItemEntity.builder()
                 .order(orderEntity)
                 .product(findProduct.get())
                 .quantity(orderItemRequest.getQuantity())
-                .unitPrice(orderItemRequest.getUnitPrice())
-                .totalPrice(orderItemRequest.getUnitPrice())
+                .unitPrice(findProduct.get().getPrice())
+                .totalPrice(totalPrice)
                 .build();
+        log.info("Order item: {}", newOrderItemEntity);
+        this.discountProductStock(findProduct.get(), orderItemRequest.getQuantity());
         this.orderItemRepository.save(newOrderItemEntity);
     }
 
-    private void discountProductStock(String productId, int quantity){
-        Optional<ProductEntity> findProduct = this.productRepository.findById(productId);
-        if(findProduct.get().getStock() > 0) {
-            findProduct.get().setStock(findProduct.get().getStock() - quantity);
-            this.productRepository.save(findProduct.get());
+    private void discountProductStock(ProductEntity product, int quantity) {
+        if (product.getStock() > 0) {
+            product.setStock(product.getStock() - quantity);
+            this.productRepository.save(product);
         }
     }
 
-    private OrderItemResponse toResponse(OrderItemEntity orderItemEntity){
+    private OrderItemResponse toResponse(OrderItemEntity orderItemEntity) {
         return new ModelMapper().map(orderItemEntity, OrderItemResponse.class);
     }
 
