@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Marli Joyería</title>
+    <link th:href="@{/css/admin.css}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1 id="user-name">Hola</h1>
+            </div>
+            <nav class="menu">
+                <ul id="options">
+                    <li data-value="ventas"><a>Ventas</a></li>
+                    <li data-value="inventario"><a class="active">Productos</a></li>
+                    <li data-value="pedidos"><a>Horarios</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h2>Panel de Administración</h2>
+                <div class="header-actions">
+                    <button>Notificaciones</button>
+                    <button>Perfil</button>
+                </div>
+            </header>
+            <section class="dashboard">
+                <div class="stats">
+                    <div class="card">
+                        <h3>Ventas</h3>
+                        <p>$15,000.00</p>
+                        <small>+10% desde el mes pasado</small>
+                    </div>
+                    <div class="card">
+                        <h3>Productos en Inventario</h3>
+                        <p>340</p>
+                        <small>+5 productos nuevos</small>
+                    </div>
+                    <div class="card">
+                        <h3>Clientes</h3>
+                        <p>1,250</p>
+                        <small>-2% comparado a agosto</small>
+                    </div>
+                    <div class="card">
+                        <h3>Tasa de Conversión</h3>
+                        <p>0.45%</p>
+                        <small>-3% este mes</small>
+                    </div>
+                </div>
+                <div class="chart">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" th:src="@{/js/admin.js}"></script>
+</body>
+</html>
