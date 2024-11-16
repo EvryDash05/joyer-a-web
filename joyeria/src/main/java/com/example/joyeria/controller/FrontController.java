@@ -48,4 +48,10 @@ public class FrontController {
     @GetMapping("/payment")
     public String payment(){ return "payment.html"; }
 
+    @GetMapping("/denied")
+    public String denied(){ return "denied.html"; }
+
+    @GetMapping("/admin")
+    public String admin(){ return "admin.html"; }
+
 }
