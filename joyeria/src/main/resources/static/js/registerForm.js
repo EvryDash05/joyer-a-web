@@ -1,4 +1,4 @@
-const ENDPOINT_REGISTER_USER = 'http://localhost:8080/v1/api/register';
+const ENDPOINT_REGISTER_USER = 'http://localhost:8080/v1/api/auth/register';
 
 document.querySelector('#login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
