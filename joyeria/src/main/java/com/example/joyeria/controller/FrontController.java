@@ -47,5 +47,10 @@ public class FrontController {
 
     @GetMapping("/payment")
     public String payment(){ return "payment.html"; }
+    
+    @GetMapping("/productsAdmin")
+    public String productsAdmin(){
+    return "productsAdmin.html";
+    }
 
 }

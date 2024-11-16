@@ -9,6 +9,7 @@ import com.example.joyeria.models.request.ProductRequest;
 import com.example.joyeria.models.response.ProductResponse;
 import com.example.joyeria.repository.ProductRepository;
 import com.example.joyeria.service.ProductService;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -47,7 +48,7 @@ public class ProductBusiness implements ProductService {
                     .img(productRequest.getImg().getBytes())
                     .build();
             return this.toResponse(this.productRepository.save(productEntity));
-        } catch (Exception e){
+        } catch (Exception e) {
             log.info(e.getMessage());
             throw new BusinessException(ErrorConstant.GENERIC_ERROR_CODE, ErrorConstant.GENERIC_ERROR_MESSAGE);
         }
@@ -56,7 +57,7 @@ public class ProductBusiness implements ProductService {
     @Override
     public ProductResponse getByProductId(String id) {
         Optional<ProductEntity> productEntity = this.productRepository.findById(id);
-        if(productEntity.isEmpty()) {
+        if (productEntity.isEmpty()) {
             throw new BusinessException(ErrorConstant.NOT_FOUND_CODE, ErrorConstant.PRODUCT_NOT_FOUND);
         }
         return toResponse(productEntity.get());
@@ -65,13 +66,13 @@ public class ProductBusiness implements ProductService {
     @Override
     public void deleteByProductId(String id) {
         Optional<ProductEntity> productEntity = this.productRepository.findById(id);
-        if(productEntity.isEmpty()) {
+        if (productEntity.isEmpty()) {
             throw new BusinessException(ErrorConstant.NOT_FOUND_CODE, ErrorConstant.PRODUCT_NOT_FOUND);
         }
         this.productRepository.delete(productEntity.get());
     }
 
-    private ProductResponse toResponse(ProductEntity entity){
+    private ProductResponse toResponse(ProductEntity entity) {
         return new ModelMapper().map(entity, ProductResponse.class);
     }
 
@@ -92,4 +93,26 @@ public class ProductBusiness implements ProductService {
         return true;
     }
 
+    //Nuevo
+     @Override
+    public ProductResponse updateProduct(String id, ProductRequest productRequest) {
+        Optional<ProductEntity> productEntityOptional = this.productRepository.findById(id);
+        if (productEntityOptional.isEmpty()) {
+            throw new BusinessException(ErrorConstant.NOT_FOUND_CODE, ErrorConstant.PRODUCT_NOT_FOUND);
+        }
+        
+        productEntityOptional.get().setProductName(productRequest.getName());
+        productEntityOptional.get().setDescription(productRequest.getDescription());
+        productEntityOptional.get().setPrice(productRequest.getPrice());
+        productEntityOptional.get().setStock(productRequest.getQuantity());
+        if (productRequest.getImg() != null && !productRequest.getImg().isEmpty()) {
+            try {
+                productEntityOptional.get().setImg(productRequest.getImg().getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException("Error processing image", e);
+            }
+        }
+
+        return this.toResponse(this.productRepository.save(productEntityOptional.get()));
+    }
 }

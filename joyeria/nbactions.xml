@@ -35,7 +35,7 @@
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.classpathScope>${classPathScope}</exec.classpathScope>
                 <Env.DB_USERNAME>root</Env.DB_USERNAME>
-                <Env.DB_PASSWORD></Env.DB_PASSWORD>
+                <Env.DB_PASSWORD>chicho2003</Env.DB_PASSWORD>
             </properties>
         </action>
     </actions>

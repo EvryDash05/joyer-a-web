@@ -10,5 +10,6 @@ public interface ProductService {
     ProductResponse createProduct(ProductRequest productRequest);
     ProductResponse getByProductId(String id);
     void deleteByProductId(String id);
-    //void updateByProductId(String id, ProductRequest product);
+    //Nuevo
+        ProductResponse updateProduct(String id, ProductRequest productRequest); // Método para editar
 }
