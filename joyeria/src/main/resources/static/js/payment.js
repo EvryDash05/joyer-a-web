@@ -1,6 +1,7 @@
 const addresses = JSON.parse(localStorage.getItem('addresses')) || []
 const cart = JSON.parse(localStorage.getItem('cart')) || []
 const sessionInfo = JSON.parse(localStorage.getItem('customerData'))
+const {token} = sessionInfo
 const REGISTER_ADDRESS_ENDPOINT = 'http://localhost:8080/v1/api/registerShipment'
 const PROCESS_ORDER_ENDPOINT = 'http://localhost:8080/v1/api/processOrder'
 const CUSTOMER_SHIPMENTS_ENDPOINT = 'http://localhost:8080/v1/api/findShipmentListByCustomerId/'
@@ -13,6 +14,7 @@ const totalProducts = cart.map(p => p.quantity)
     .reduce((total, quantity) => total + quantity, 0)
 
 function showShipmentModal() {
+    console.log(token)
     const modal = `
         <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -58,7 +60,8 @@ async function registerAddress(address) {
     const response = await fetch(REGISTER_ADDRESS_ENDPOINT, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
             ...address,
@@ -92,7 +95,8 @@ async function processPurchase() {
     const response = await fetch(PROCESS_ORDER_ENDPOINT, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
             email: sessionInfo.email,
@@ -126,10 +130,18 @@ function addAddress() {
 
 async function addAddressesOptions() {
     const {customerId} = sessionInfo
-    const response = await fetch(CUSTOMER_SHIPMENTS_ENDPOINT + customerId)
+    console.log(customerId)
+    const response = await fetch(CUSTOMER_SHIPMENTS_ENDPOINT + customerId, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    }).catch(e => console.log(e))
+
     const addresses = await response.json()
     const addressesOptions = document.getElementById('address-options')
-    addressesOptions.innerHTML = ''
+
     console.log(addresses)
     addresses.forEach((address) => {
         addressesOptions.innerHTML += `
