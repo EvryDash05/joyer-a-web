@@ -4,29 +4,28 @@
  */
 package com.example.joyeria.controller;
 
+import com.example.joyeria.business.UserDetailsBusiness;
 import com.example.joyeria.models.request.AuthCreateUserRequest;
 import com.example.joyeria.models.request.AuthLoginRequest;
-import com.example.joyeria.models.response.CustomerResponse;
-import com.example.joyeria.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/api")
+@RequestMapping("/v1/api/auth")
 public class AuthenticacionController {
 
-    private final CustomerService customerService;
+    private final UserDetailsBusiness userDetailsBusiness ;
 
     @PostMapping("/login")
-    public ResponseEntity<CustomerResponse> login(@RequestBody AuthLoginRequest request) {
-        return ResponseEntity.ok(this.customerService.getCustomerByEmail(request.getEmail()));
+    public ResponseEntity<?> login(@RequestBody AuthLoginRequest request) {
+        return ResponseEntity.ok(this.userDetailsBusiness.loginUser(request));
     }
 
     @PostMapping("/register")
     public ResponseEntity<?> createUser(@RequestBody AuthCreateUserRequest registerRequest){
-        return ResponseEntity.ok(this.customerService.createCustomer(registerRequest));
+        return ResponseEntity.ok(this.userDetailsBusiness.createUser(registerRequest));
     }
 
 }
