@@ -1,4 +1,4 @@
-const ENDPOINT_REGISTER_USER = 'http://localhost:8080/v1/api/login'
+const ENDPOINT_REGISTER_USER = 'http://localhost:8080/v1/api/auth/login'
 
 document.querySelector('#login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ document.querySelector('#login-form').addEventListener('submit', async (e) => {
 
             alert("Login successfully");
 
-            window.location.href = "../../templates/index.html";
+            window.location.href = "/front/products";
         } else {
             alert("Error to login")
         }

@@ -2,9 +2,8 @@ const customerData = JSON.parse(localStorage.getItem("customerData"));
 console.log(customerData)
 
 function logout() {
-    console.log(localStorage.getItem("customerData"));
-    localStorage.removeItem('customerData');
-    window.location.href = "/login";
+    localStorage.clear();
+    window.location.href = "/front/home";
 }
 
 function showCustomerData() {
