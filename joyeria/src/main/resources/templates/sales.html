@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard - Marli Joyería</title>
+        <link th:href="@{/css/admin.css}" rel="stylesheet"/>
+        <link th:href="@{/css/sales.css}" rel="stylesheet"/>
+    </head>
+    <style>
+
+    </style>
+    <body>
+        <div class="container">
+            <aside class="sidebar">
+                <div class="logo">
+                    <h1 id="user-name">Hola</h1>
+                </div>
+                <nav class="menu">
+                    <ul id="options">
+                        <li data-value="ventas"><a class="active">Ventas</a></li>
+                        <li data-value="inventario"><a>Productos</a></li>
+                        <li data-value="pedidos"><a>Horarios</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="main-content">
+                <header class="header">
+                    <h2>Panel de Administración</h2>
+                    <div class="header-actions">
+                        <button>Notificaciones</button>
+                        <button>Perfil</button>
+                    </div>
+                </header>
+                <section class="dashboard">
+                    <!-- Resumen de Ventas -->
+                    <div class="stats">
+                        <div class="card">
+                            <h3>Total de Ventas</h3>
+                            <p id="total-ventas">12</p>
+                        </div>
+                        <div class="card">
+                            <h3>Monto Total</h3>
+                            <p id="total-monto">S/500</p>
+                        </div>
+                        <div class="card">
+                            <h3>Producto Más Vendido</h3>
+                            <p id="producto-popular">joyas de perla</p>
+                        </div>
+                        <div class="card">
+                            <h3>Cliente del Día</h3>
+                            <p id="cliente-dia">LUIS ADRIANO</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de Ventas -->
+                    <div class="chart">
+                        <h3>Pagos del Día</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID Pago</th>
+                                    <th>ID Cliente</th>
+                                    <th>Fecha de Pago</th>
+                                    <th>Método de Pago</th>
+                                    <th>Monto</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentsTableBody">
+                                <tr>
+                                    <td colspan="6">Cargando datos...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Modal para editar pagos -->
+                    <div class="modal fade" id="editPaymentModal" tabindex="-1" aria-labelledby="editPaymentModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form id="editPaymentForm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editPaymentModalLabel">Editar Pago</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" id="editPaymentId" name="payment_id">
+                                        <div class="mb-3">
+                                            <label for="editCustomerId" class="form-label">ID Cliente</label>
+                                            <input type="text" class="form-control" id="editCustomerId" name="customer_id" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="editPaymentDate" class="form-label">Fecha de Pago</label>
+                                            <input type="datetime-local" class="form-control" id="editPaymentDate" name="payment_date" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="editPaymentMethod" class="form-label">Método de Pago</label>
+                                            <input type="text" class="form-control" id="editPaymentMethod" name="payment_method" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="editAmount" class="form-label">Monto</label>
+                                            <input type="number" step="0.01" class="form-control" id="editAmount" name="amount" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </section>                
+
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" th:src="@{/js/sales.js}"></script>
+    </body>
+</html>

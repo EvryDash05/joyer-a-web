@@ -2,6 +2,7 @@
 <actions>
         <action>
             <actionName>run</actionName>
+            <recursive>false</recursive>
             <packagings>
                 <packaging>jar</packaging>
             </packagings>
@@ -13,6 +14,9 @@
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
+                <DB_USERNAME>root</DB_USERNAME>
+                <DB_PASSWORD></DB_PASSWORD>
+                
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <Env.DB_USERNAME>root</Env.DB_USERNAME>
@@ -32,6 +36,9 @@
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.executable>java</exec.executable>
+                <DB_USERNAME>root</DB_USERNAME>
+                <DB_PASSWORD></DB_PASSWORD>
+                
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.classpathScope>${classPathScope}</exec.classpathScope>
                 <Env.DB_USERNAME>root</Env.DB_USERNAME>

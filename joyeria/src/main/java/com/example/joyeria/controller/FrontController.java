@@ -52,6 +52,12 @@ public class FrontController {
     public String productsAdmin(){
     return "productsAdmin.html";
     }
+    
+    @GetMapping("/sales")
+    public String sales() {
+        return "sales.html";
+    }
+    
 
     @GetMapping("/denied")
     public String denied(){ return "denied.html"; }
